@@ -1,0 +1,6 @@
+git clone https://github.com/strateg/banking-system.git
+cd configuration-service
+docker build -t valgavchanin/configuration-service -f "C:\Workspaces\IdeaProjects\banking-system\configuration-service\src\main\docker\Dockerfile" .
+docker push valgavhanin/configuration-service
+
+docker run valgavchanin/kn-test USD EUR
