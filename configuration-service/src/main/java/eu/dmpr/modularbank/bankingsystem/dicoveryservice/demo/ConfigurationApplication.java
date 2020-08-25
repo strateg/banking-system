@@ -1,4 +1,4 @@
-package demo;
+package eu.dmpr.modularbank.bankingsystem.dicoveryservice.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -6,4 +6,6 @@ docker-compose rm -f
 docker-compose up -d postgres
 docker-compose up -d rabbitmq
 
-REM docker-compose up -d configuration-service
+docker-compose up -d discovery-service
+
+docker-compose up -d configuration-service

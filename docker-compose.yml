@@ -22,6 +22,14 @@ services:
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq/
 
+  discovery-service:
+    image: valgavchanin/discovery-service
+    ports:
+      - 8761:8761
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DOCKER_IP=$DOCKER_IP
+
   configuration-service:
     image: valgavchanin/configuration-service
     environment:
