@@ -1,0 +1,5 @@
+https://www.kennybastani.com/2016/04/event-sourcing-microservices-spring-cloud.html
+
+https://12factor.net/
+
+https://spring.io/guides/tutorials/spring-security-and-angular-js/

@@ -1,0 +1,36 @@
+version: '3'
+services:
+  postgres:
+    image: "library/postgres:13" # use latest official postgres version
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DOCKER_IP=$DOCKER_IP
+    ports:
+      - 5432:5432
+    env_file:
+      - database.env # configure postgres
+    volumes:
+      - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+  configuration-service:
+    image: valgavchanin/configuration-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DOCKER_IP=$DOCKER_IP
+    ports:
+      - 8888:8888
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq/
+    environment:
+      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - 5672:5672
+      - 15672:15672
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
+  rabbitmq-data: # data volume for rabbitmq

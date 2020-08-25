@@ -1,0 +1,33 @@
+RabbitMQ docker image
+=========================
+https://www.rabbitmq.com/download.html
+docker pull rabbitmq
+docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+pwd: guest/guest
+
+
+Postgres DB docker image
+=========================
+https://hackernoon.com/dont-install-postgres-docker-pull-postgres-bee20e200198
+docker pull postgres:13
+mkdir -p $HOME/docker/volumes/postgres
+docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v %HOMEPATH%/docker/volumes/postgres:/var/lib/postgresql/data  postgres
+
+https://www.ctl.io/developers/blog/post/gracefully-stopping-docker-containers/
+
+docker ps -a
+docker kill ----signal=SIGINT postgres
+
+
+ cmd /K chcp 1251   // cyrillic
+ cmd /K chcp 65001 // utf-8
+
+
+Spring JPA
+==================
+https://auth0.com/blog/integrating-spring-data-jpa-postgresql-liquibase/
+
+docker compose
+===================
+docker-compose images --remove-orphans
+

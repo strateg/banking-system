@@ -1,0 +1,3 @@
+rootProject.name = 'banking-system'
+include 'edge-service'
+include 'configuration-service'
