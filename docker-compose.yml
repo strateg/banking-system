@@ -38,6 +38,19 @@ services:
     ports:
       - 8888:8888
 
+  edge-service:
+    image: valgavchanin/edge-service
+    ports:
+      - 9999:9999
+    links:
+      - account-service
+      - report-service
+      - discovery-service
+      - configuration-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DOCKER_IP=$DOCKER_IP
+
   account-service:
     image: valgavchanin/account-service
     environment:
@@ -53,6 +66,20 @@ services:
       - DOCKER_IP=$DOCKER_IP
     ports:
       - 10002:10002
+
+  banking-system-web:
+    image: valgavchanin/banking-system-web
+    ports:
+      - 8787:8787
+    links:
+      - discovery-service
+      - configuration-service
+      - account-service
+      - report-service
+      - edge-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DOCKER_IP=$DOCKER_IP
 volumes:
   database-data: # named volumes can be managed easier using docker-compose
   rabbitmq-data: # data volume for rabbitmq
