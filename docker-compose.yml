@@ -38,6 +38,21 @@ services:
     ports:
       - 8888:8888
 
+  account-service:
+    image: valgavchanin/account-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DOCKER_IP=$DOCKER_IP
+    ports:
+      - 10001:10001
+
+  report-service:
+    image: valgavchanin/report-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DOCKER_IP=$DOCKER_IP
+    ports:
+      - 10002:10002
 volumes:
   database-data: # named volumes can be managed easier using docker-compose
   rabbitmq-data: # data volume for rabbitmq

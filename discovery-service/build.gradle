@@ -12,7 +12,6 @@ version = '0.0.1-SNAPSHOT'
 
 ext {
 	set('springCloudVersion', "Hoxton.SR7")
-	dockerGradleVersion = '0.25.0'
 }
 
 dependencyManagement {

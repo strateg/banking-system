@@ -1,0 +1,11 @@
+---
+applications:
+- name: report-service
+  memory: 512M
+  instances: 1
+  host: report-service-${random-word}
+  path: build/libs/report-service-0.0.1-SNAPSHOT.jar
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    DEBUG: "true"
+    debug: "true"

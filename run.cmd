@@ -9,3 +9,5 @@ docker-compose up -d rabbitmq
 docker-compose up -d discovery-service
 
 docker-compose up -d configuration-service
+docker-compose up -d account-service
+docker-compose up -d report-service
